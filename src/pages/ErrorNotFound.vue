@@ -1,21 +1,23 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen uniride-bg text-white text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
-        404
+      <div>
+        <h1 class="uniride-text">
+          404
+        </h1>
       </div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+      <div class="text-h2" style="opacity:.6">
+        <span class="uniride-text">
+          Ops! Acho que você se perdeu por ai!
+        </span>
       </div>
 
       <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
+        class="q-mt-xl uniride-button"
         unelevated
         to="/"
-        label="Go Home"
+        label="Ir para página inicial"
         no-caps
       />
     </div>
