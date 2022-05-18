@@ -10,22 +10,29 @@
       </div>
       <div class="right_screen">
           <div class="text">
-            <h3 class="text_log">Log<h3 class="text_in">In</h3></h3>
-            <div class="cant_login">
-              <h6 class="text_cant_login">Can't log in?</h6>
-              <a href="#" class="a_sign">Sign up for account</a>
+            <h3 class="text_sign">Sign<h3 class="text_up">Up</h3></h3>
+            <div class="already_account">
+              <h6 class="text_already_account">Already have an account? <h6 class="text_logIn">Log in</h6></h6>
             </div>
           </div>
           <div class="form_login">
+            <p class="text_name">Name</p>
+            <q-input color="red-10" outlined v-model="text" label="Your Name" />
+
             <p class="text_email">Email Address</p>
-            
-            <q-input color="red-10" outlined v-model="text" label="Enter Email Address" />
+            <q-input color="red-10" outlined v-model="text" label="examples@gmail.com" />
             
             <p class="text_pass">Password</p>
             <q-input color="red-10" outlined class="input_pass" v-model="password"  type="password" label="Enter Password"/>
           </div>
 
-
+            <div class="check_box">
+                <div class="q-pa-md">
+                    <div class="q-gutter-sm">
+                        <q-checkbox  v-model="red" label="I agree to Platforms Terms of Service and Privacy Policy" color="red" />
+                    </div>
+                </div>
+            </div>
           <div class="_or">
             <div class="line_1"></div>
             <div class="text_or">Or</div>
@@ -38,29 +45,29 @@
 
                 <img src="../assets/google.png" style="width: 20px; margin-right: 3%"/>
                 <div class="ellipsis">
-                  Log in with Google
+                  Sign with Google
                 </div>
               </q-btn>
             </div>
             <div class="btn_login">
-              <q-btn unelevated rounded color="red-10" label="Log In" style="width: 25%; margin-left: 37.5%; margin-top: 50px;"/>
+              <q-btn unelevated rounded color="red-10" label="Create account" style="width: 25%; margin-left: 37.5%; margin-top: 50px;"/>
             </div>
           </div>
 
         </div>
     </div>
-    
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'IndexPage'
+    name: 'SignUpPage'
 })
 </script>
+
 <style>
-*{
+    *{
   padding: 0;
   margin: 0;
 }
@@ -84,6 +91,7 @@ export default defineComponent({
   width: 50%;
   height: 100vh;
   float: left;
+  
 }
 
 
@@ -137,30 +145,36 @@ export default defineComponent({
 
 .text{
   width: 75%;
-  margin-top: 15%;
+  margin-top: 7%;
   margin-left: 12.5%;
 
 }
 
-.text_log{
+.text_sign{
   float: left;
   font-weight: bold;
   margin-right: 15px;
 }
-.text_in{
+.text_up{
   color: #AF1B3F;
   font-weight: bold;
 }
 
-.cant_login{
+.already_account{
   margin-top: 15px;
 }
 
-.text_cant_login{
-  color: #AF1B3F;
+.text_already_account, .text_logIn{
+  color: #000;
   font-size: 15px;
   margin-left: 5px;
+  float: left;
 }
+
+.text_logIn{
+    color: #AF1B3F;
+}
+
 
 .a_sign{
   text-align: right;
@@ -177,15 +191,23 @@ export default defineComponent({
 }
 
 .input_email{
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .text_pass{
   margin-top: 25px;
 }
 
+.text_email{
+    margin-top: 20px;
+}
+
 .input_pass{
   margin-top: -5px;
+}
+
+.check_box{
+    text-align: center;
 }
 
 ._or{
