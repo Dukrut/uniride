@@ -1,143 +1,16 @@
 <template>
   <div class="full-height full-width window-height no-scroll">
-    <q-toolbar class="text-danger q-pa-sm bg-orange-5">
-      <img src="../assets/logo.png" class="img_logo" />
-      <q-toolbar-title class="text-red-10"> UNIRIDE </q-toolbar-title>
-      <q-btn
-        flat
-        label="Dashboard"
-        class="text-red-10"
-        @click="view = 'dashboard'"
-      />
-      <q-btn icon="account-key"></q-btn>
-      <q-btn
-        flat
-        icon="account-key"
-        class="text-red-10"
-        @click="view = 'user'"
-      />
-    </q-toolbar>
-
-    <div v-if="view == 'dashboard'" class="q-pa-lg full-height">
-      <div class="row full-width justify-between">
-        <q-card class="box-graph col-3 q-pa-md">
-          <table class="charts-css show-heading line show-labels">
-            <caption>
-              Avaliação do aplicativo
-            </caption>
-
-            <thead>
-              <tr>
-                <th scope="col">Country</th>
-                <th scope="col">Gold</th>
-                <th scope="col">Silver</th>
-                <th scope="col">Bronze</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <th scope="row">Label</th>
-                <td>Data</td>
-                <td>Data</td>
-                <td>Data</td>
-              </tr>
-            </tbody>
-          </table>
-        </q-card>
-        <q-card class="box-graph col-3 q-pa-md">
-          <table class="charts-css bar show-heading q-ma-lg">
-            <caption>
-              Motoristas no aplicativo
-            </caption>
-
-            <thead>
-              <tr>
-                <th scope="col">Country</th>
-                <th scope="col">Gold</th>
-                <th scope="col">Silver</th>
-                <th scope="col">Bronze</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <th scope="row">USA</th>
-                <td>46</td>
-                <td>37</td>
-                <td>38</td>
-              </tr>
-              <tr>
-                <th scope="row">GBR</th>
-                <td>27</td>
-                <td>23</td>
-                <td>17</td>
-              </tr>
-              <tr>
-                <th scope="row">CHN</th>
-                <td>26</td>
-                <td>18</td>
-                <td>26</td>
-              </tr>
-            </tbody>
-          </table>
-        </q-card>
-        <q-card class="box-graph col-3 q-pa-md">
-          <table class="charts-css bar show-heading">
-            <caption>
-              Valores das caronas
-            </caption>
-
-            <thead>
-              <tr>
-                <th scope="col">Country</th>
-                <th scope="col">Gold</th>
-                <th scope="col">Silver</th>
-                <th scope="col">Bronze</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <th scope="row">USA</th>
-                <td>46</td>
-                <td>37</td>
-                <td>38</td>
-              </tr>
-              <tr>
-                <th scope="row">GBR</th>
-                <td>27</td>
-                <td>23</td>
-                <td>17</td>
-              </tr>
-              <tr>
-                <th scope="row">CHN</th>
-                <td>26</td>
-                <td>18</td>
-                <td>26</td>
-              </tr>
-            </tbody>
-          </table>
-        </q-card>
-      </div>
-    </div>
-
-    <div v-else>
-      <q-table
-        title="Usuários"
-        :rows="rows"
-        :columns="columns"
-        row-key="name"
-      />
-    </div>
+    <toolbar-layout></toolbar-layout>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import "charts.css";
+import ToolbarLayout from "../components/ToolbarLayout.vue";
 
 export default {
+  components: { ToolbarLayout },
   props: {
     user_id: {
       type: String,
@@ -316,10 +189,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .img_logo {
   width: 50px;
   height: 50px;
+  padding: 5px;
 }
 
 .my-chart {

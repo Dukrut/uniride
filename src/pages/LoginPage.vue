@@ -179,7 +179,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .d-grid {
   display: grid;
   align-items: center;
