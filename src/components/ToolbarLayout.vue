@@ -1,12 +1,12 @@
 <template>
-  <div class="full-width window-height no-scroll">
+  <div class="full-width">
     <q-toolbar class="text-danger bg-orange-5">
       <img src="../assets/logo.png" class="img_logo" />
 
-      <q-toolbar-title class="text-red-10">UNIRIDE </q-toolbar-title>
+      <q-toolbar-title class="text-red-10">UNIRIDE</q-toolbar-title>
 
       <q-btn
-        flat
+        :flat="view != 'dashboard'"
         label="Dashboard"
         class="text-red-10"
         icon="dashboard"
@@ -14,28 +14,28 @@
       />
 
       <q-btn
-        flat
+        :flat="view != 'cars'"
         label="Carros"
         class="text-red-10"
         icon="directions_car"
         @click="view = 'cars'"
       />
 
-      <!-- <q-btn
-        flat
+      <q-btn
+        :flat="view != 'ride'"
         label="Corridas"
         class="text-red-10"
         icon="commute"
-        @click="view = 'users'"
+        @click="view = 'ride'"
       />
 
       <q-btn
-        flat
+        :flat="view != 'users'"
         label="Usuários"
         class="text-red-10"
         icon="supervisor_account"
         @click="view = 'users'"
-      /> -->
+      />
 
       <q-btn
         flat
