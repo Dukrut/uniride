@@ -1,55 +1,63 @@
 <template>
   <div class="full-width">
-    <q-toolbar class="text-danger bg-orange-5">
+    <q-toolbar class="text-danger bg-orange-4">
       <img src="../assets/logo.png" class="img_logo" />
 
       <q-toolbar-title class="text-red-10">UNIRIDE</q-toolbar-title>
 
       <q-btn
         :flat="view != 'dashboard'"
-        label="Dashboard"
         class="text-red-10"
         icon="dashboard"
-        @click="view = 'dashboard'"
-      />
+        @click="changeView('dashboard')"
+      >
+        <q-tooltip>Dashboard</q-tooltip>
+      </q-btn>
 
       <q-btn
         :flat="view != 'cars'"
-        label="Carros"
         class="text-red-10"
         icon="directions_car"
-        @click="view = 'cars'"
-      />
+        @click="changeView('cars')"
+      >
+        <q-tooltip>Carros</q-tooltip>
+      </q-btn>
 
       <q-btn
         :flat="view != 'ride'"
-        label="Corridas"
         class="text-red-10"
         icon="commute"
-        @click="view = 'ride'"
-      />
+        @click="changeView('ride')"
+      >
+        <q-tooltip>Corridas</q-tooltip>
+      </q-btn>
 
       <q-btn
         :flat="view != 'users'"
-        label="Usuários"
         class="text-red-10"
         icon="supervisor_account"
-        @click="view = 'users'"
-      />
+        @click="changeView('users')"
+      >
+        <q-tooltip>Usuários</q-tooltip>
+      </q-btn>
 
       <q-btn
         flat
-        class="text-red-10"
+        class="text-red-10 q-ml-xl"
         icon="account_circle"
-        @click="view = 'users'"
-      />
+        @click="changeView('profile')"
+      >
+        <q-tooltip>Perfil</q-tooltip>
+      </q-btn>
 
       <q-btn
         flat
         class="text-red-10"
         icon="notifications"
-        @click="view = 'users'"
-      />
+        @click="changeView()"
+      >
+        <q-tooltip>Notificações</q-tooltip>
+      </q-btn>
     </q-toolbar>
   </div>
 </template>
@@ -63,12 +71,15 @@ export default {
       type: String,
       required: true,
     },
+    view: {
+      type: String,
+      required: true,
+    },
   },
 
   data() {
     return {
       user: {},
-      view: "dashboard",
     };
   },
 
@@ -92,6 +103,9 @@ export default {
           console.log(error);
         })
         .finally({});
+    },
+    changeView(view) {
+      this.$emit("onChangeView", view);
     },
   },
 };

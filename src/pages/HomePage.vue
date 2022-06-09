@@ -1,7 +1,13 @@
 <template>
-  <div class="full-width window-height no-scroll">
-    <toolbar-layout />
-    <dashboard-layout />
+  <div class="full-width window-height">
+    <toolbar-layout @onChangeView="changeView" :view="view" />
+    <dashboard-layout v-if="view == 'dashboard'" />
+    <profile-layout
+      v-else-if="view == 'profile'"
+      :user="user"
+      @onGetUser="getUser"
+    />
+    <user-layout v-else-if="view == 'users'"></user-layout>
   </div>
 </template>
 
@@ -9,9 +15,11 @@
 import axios from "axios";
 import ToolbarLayout from "../components/ToolbarLayout.vue";
 import DashboardLayout from "../components/DashboardLayout.vue";
+import ProfileLayout from "../components/ProfileLayout.vue";
+import UserLayout from "../components/UserLayout.vue";
 
 export default {
-  components: { ToolbarLayout, DashboardLayout },
+  components: { ToolbarLayout, DashboardLayout, ProfileLayout, UserLayout },
   props: {
     user_id: {
       type: String,
@@ -44,8 +52,10 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-        })
-        .finally({});
+        });
+    },
+    changeView(view) {
+      this.view = view;
     },
   },
 };
