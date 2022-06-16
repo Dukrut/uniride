@@ -128,6 +128,7 @@ export default defineComponent({
             );
 
             let user = response.data;
+            console.log(user);
 
             setTimeout(() => {
               this.$router.push({

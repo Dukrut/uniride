@@ -69,11 +69,7 @@
 
 <script>
 import "charts.css";
-export default {
-  mounted() {
-    console.log("teste");
-  },
-};
+export default {};
 </script>
 
 <style>

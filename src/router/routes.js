@@ -1,7 +1,7 @@
 const routes = [
   {
     path: "/",
-    component: () => import("pages/InfoPage.vue"),
+    component: () => import("pages/LoginPage.vue"),
   },
   {
     path: "/home",

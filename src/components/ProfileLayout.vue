@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="col-12 justify-end q-px-lg q-mt-lg">
-        <q-btn @click="onSave()">Salvar</q-btn>
+        <q-btn @click="onSave()" class="text-green-8">Salvar</q-btn>
       </div>
     </q-card>
   </div>
@@ -128,15 +128,12 @@ export default {
               "Ocorreu uma falha ao atualizar o seu perfil."
             );
           }
-
-          console.log(response);
         })
         .catch((error) => {
           this.showNotify(
             "negative",
             "Ocorreu uma falha ao atualizar o seu perfil."
           );
-          console.log(error);
         });
     },
   },
